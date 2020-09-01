@@ -1,7 +1,7 @@
 # SUFS
 Seattle University File System
 
-PLEASE CHECK CHECK DESIGN DOCUMENT FOR MORE INFORMATION
+**PLEASE CHECK CHECK DESIGN DOCUMENT FOR MORE INFORMATION**
 
 Ana Taylor | Puma Damdinsuren |  Mitchel Downey | Virmel Gacad 
 
