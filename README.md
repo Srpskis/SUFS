@@ -1,6 +1,8 @@
 # SUFS
 Seattle University File System
 
+PLEASE CHECK CHECK DESIGN DOCUMENT FOR MORE INFORMATION
+
 Ana Taylor | Puma Damdinsuren |  Mitchel Downey | Virmel Gacad 
 
 Architecture of SUFS 
@@ -15,45 +17,6 @@ The NameNode will reply with a list of DataNodes for the client to write to. The
 the file according to the block size and send each block to each DataNode. The DataNodes will then store 
 those blocks. 
 
-API documentation 
-
-    NameNode.py:
-        route:      '/writeFile', GET
-        args:       filename - string of the name of the file to be written
-        returns:    if the file already exists, returns None.
-                    if the file does not exists, returns an array of size N, where N is the replication factor, containing the IP addresses of data nodes the client can write to
-                    
-        route:      '/readFile', GET
-        args:       filename - string of the name of the file to be read
-        returns:    if the file does not exist, returns None.
-                    if the file does exist, returns an array of size N, where N is the replication factor, containing the IP addresses of data nodes the client can read from
-                    
-        route:      '/listBlocks', GET
-        args:       filename - string of the name of the file to get the block locations for
-        returns:    if the file does not exist, returns None.
-                    if the file does exist, returns a dictionary, keyed on the block IDs, containing arrays of DataNode IDs that contain each block
-                    
-        route:      '/blockReport', PUT
-        args:       nodeID - the ID of the DataNode sending the report
-                    blockList - an array of all the block IDS the DataNode is storing
-        returns:    no returns
-        
-    DataNode.py:
-        route:      '/writeBlock', PUT
-        args:       blockID - the ID of the block being written
-                    block - the data block being written
-        returns:    no returns
-        
-        route:      '/readBlock', GET
-        args:       blockID - the ID of the block being requested
-                    block - the data block being requested
-        returns:    the data block requested
-        
-        route:      '/replicateBlock', PUT
-        args:       blockID - the ID of the block being replicated
-                    nodeIP - the address of the node the block should be written to
-        returns:    no returns
-	**** TEST ********** 
 
 Technologies/Tools 
 
